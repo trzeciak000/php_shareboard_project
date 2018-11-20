@@ -1,8 +1,8 @@
 <?php
 class UserModel extends Model{
   public function register(){
-    $connect = mysqli_connect("localhost","root","root");
-    mysqli_select_db($connect,"shareboard");
+    $connect = mysqli_connect(DB_HOST,DB_USER,DB_PASS);
+    mysqli_select_db($connect,DB_NAME);
     //sanitize post
     $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -58,7 +58,8 @@ class UserModel extends Model{
           $_SESSION['user_data'] = array(
             "id"    => $row['id'],
             "name"  => $row['name'],
-            "email" => $row['email']
+            "email" => $row['email'],
+            "role_id" => $row['role_id']
           );
           header('Location: '.ROOT_URL.'shares');
         } else{

@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>Shareboard</title>
-    <link rel="stylesheet" href="/projekt/assests/css/bootstrap.css">
-    <link rel="stylesheet" href="/projekt/assests/css/style.css">
+    <link rel="stylesheet" href="/php_shareboard_project/assests/css/bootstrap.css">
+    <link rel="stylesheet" href="/php_shareboard_project/assests/css/style.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,6 +15,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo ROOT_URL; ?>Shares">Shares</a>
       </li>
+    <?php if(isset($_SESSION['is_logged_in']) && ($_SESSION['user_data']['role_id'] == 1 || $_SESSION['user_data']['role_id'] == 2)) : ?>
+        <li class="nav-item active">
+          <a class="nav-link" href="<?php echo ROOT_URL; ?>Admin">Admin panel</a>
+        </li>
+    <?php endif; ?>
     </ul>
     <span class="navbar-text justify-content-end">
       <ul class="nav">

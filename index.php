@@ -10,10 +10,12 @@ require('classes/Controller.php');
 require('classes/Model.php');
 require('classes/Messages.php');
 
+require('controllers/admin.php');
 require('controllers/home.php');
 require('controllers/users.php');
 require('controllers/shares.php');
 
+require('models/admin.php');
 require('models/home.php');
 require('models/user.php');
 require('models/share.php');
